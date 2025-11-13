@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card shadow-sm p-4">
+     <h3 class="mb-3">Ürünü Düzenle</h3>
+     <form method="POST">
+    <div class="mb-3">
+        <label for="urun_adi" class="form-label">Ürün Adı</label>
+        <input type="text" class="form-control" id="urun_adi" name="urun_adi" value="{{ urun[1]}}" required>
+    </div>
+    <div class="mb-3">
+        <label for="kategori" class="form-label">Kategori</label>
+        <input type="text" class="form-control" id="kategori" name="kategori" value="{{ urun[2]}}" required>
+    </div>
+     <div class="mb-3">
+        <label for="miktar" class="form-label">Miktar</label>
+        <input type="number" class="form-control" id="miktar" name="miktar" value="{{ urun[3]}}" required>
+    </div>
+    <div class="mb-3">
+        <label for="fiyat" class="form-label">Fiyat</label>
+        <input type="number" step="0.1" class="form-control" id="fiyat" name="fiyat" value="{{ urun[4]}}" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+    <a href="/urunler" class="btn btn-secondary">Geri Dön</a>
+    </form>
+</div>
+{% endblock %}

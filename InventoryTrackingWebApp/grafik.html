@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card shadow-sm p-4">
+    <h3 class="mb-4">Kategori Bazlı Stok Miktarları</h3>
+
+    {% if kategoriler %}
+    <canvas id="stokGrafik"></canvas>
+    {% else %}
+    <div class="alert alert-warning mt-3">Grafik oluşturmak için ürün ekleyin.</div>
+    {% endif %}
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('stokGrafik').getContext('2d');
+    const stokGrafik = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: {{ kategoriler | tojson }},
+            datasets: [{
+                label: 'Toplam Miktar',
+                data: {{ miktarlar | tojson }},
+                borderWidth: 1,
+                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                borderColor: 'rgba(54, 162, 235, 1)'
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: { display: true, text: 'Miktar' }
+                },
+                x: {
+                    title: { display: true, text: 'Kategori' }
+                }
+            }
+        }
+    });
+</script>
+{% endblock %}

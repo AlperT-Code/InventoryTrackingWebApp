@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stok Takip Programı</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-dark bg-dark mb-4">
+        <div class="container d-flex justify-content-between">
+            <a href="/" class="navbar-brand">Stok Takip</a>
+        </div>
+        <a href="/urun_ekle" class="btn btn-outline-light btn-sm me-2">Ürün Ekle</a>
+
+        <a href="/urunler" class="btn btn-outline-light btn-sm me-2">Ürün Listesi</a>
+
+        <a href="/grafik" class="btn btn-outline-light btn-sm">Grafikler</a>
+    </nav>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
